@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { FiChevronDown, FiPlay, FiExternalLink } from 'react-icons/fi'
 
 const LOGO_URL = '/logo-viusite.png'
-const VIDEO_URL = '/videos/carcel-antofagasta-4d.mp4'
+const YOUTUBE_ID = 'cDwVH2caK-w'
 const PROJECT_URL = 'https://preeminent-ganache-e0c8cc.netlify.app/'
 
 export default function Hero() {
@@ -19,6 +19,7 @@ export default function Hero() {
 
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 pt-28 pb-16">
         <div className="grid xl:grid-cols-[0.8fr_1.2fr] gap-10 xl:gap-14 items-center">
+
           {/* Columna izquierda */}
           <div className="max-w-xl">
             <motion.div {...fadeUp(0.1)} className="mb-6">
@@ -44,68 +45,45 @@ export default function Hero() {
             >
               <span className="text-gradient">See it</span>
               <br />
-              <span className="text-white">before it’s built</span>
+              <span className="text-white">before it's built</span>
             </motion.h1>
 
-            <motion.p
-              {...fadeUp(0.5)}
-              className="text-xl md:text-2xl text-gray-300 font-light mb-4"
-            >
+            <motion.p {...fadeUp(0.5)} className="text-xl md:text-2xl text-gray-300 font-light mb-4">
               Visualizamos tu proyecto{' '}
               <span className="text-white font-medium">antes de construirlo</span>
             </motion.p>
 
-            <motion.p
-              {...fadeUp(0.65)}
-              className="text-base md:text-lg text-gray-400 mb-8 leading-relaxed"
-            >
+            <motion.p {...fadeUp(0.65)} className="text-base md:text-lg text-gray-400 mb-8 leading-relaxed">
               Simulación 4D que integra tu BIM y tu Gantt para visualizar,
               anticipar y decidir antes de ejecutar. Muestra el desarrollo del
               proyecto de forma clara tanto para especialistas como para no especialistas.
             </motion.p>
 
-            <motion.div
-              {...fadeUp(0.8)}
-              className="flex flex-col sm:flex-row gap-4 mb-10"
-            >
-              <a
-                href="#contacto"
-                className="bg-vs-orange hover:bg-vs-orange-light text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/30 text-lg text-center"
-              >
+            <motion.div {...fadeUp(0.8)} className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a href="#contacto" className="bg-vs-orange hover:bg-vs-orange-light text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/30 text-lg text-center">
                 Solicitar Demo
               </a>
-
-              <a
-                href={PROJECT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white/20 hover:border-vs-orange/50 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:bg-white/5 text-lg inline-flex items-center justify-center gap-2"
-              >
+              <a href={PROJECT_URL} target="_blank" rel="noopener noreferrer" className="border border-white/20 hover:border-vs-orange/50 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:bg-white/5 text-lg inline-flex items-center justify-center gap-2">
                 Ver visualización 3D
                 <FiExternalLink size={18} />
               </a>
             </motion.div>
 
-            <motion.div
-              {...fadeUp(0.95)}
-              className="grid grid-cols-3 gap-6"
-            >
+            <motion.div {...fadeUp(0.95)} className="grid grid-cols-3 gap-6">
               {[
-                { value: '4D', label: 'Simulación integrada' },
-                { value: '6', label: 'Pasos metodología' },
+                { value: '4D',   label: 'Simulación integrada' },
+                { value: '6',    label: 'Pasos metodología' },
                 { value: '100%', label: 'BIM + Gantt integrado' },
               ].map((stat, i) => (
                 <div key={i}>
-                  <div className="font-display font-black text-3xl md:text-4xl text-gradient">
-                    {stat.value}
-                  </div>
+                  <div className="font-display font-black text-3xl md:text-4xl text-gradient">{stat.value}</div>
                   <div className="text-gray-400 text-xs mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Columna derecha - vídeo MÁS GRANDE */}
+          {/* Columna derecha - YouTube embed */}
           <motion.div {...fadeUp(0.45)} className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-vs-navy/20 to-vs-orange/20 blur-3xl opacity-70 rounded-3xl" />
 
@@ -115,24 +93,19 @@ export default function Hero() {
                   <FiPlay size={13} />
                   Simulación 4D destacada
                 </div>
-
                 <span className="text-xs text-gray-400 hidden sm:block">
                   Cárcel Antofagasta · Ingevec
                 </span>
               </div>
 
-              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black">
-                <video
-                  className="w-full h-auto aspect-video object-cover"
-                  src={VIDEO_URL}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                >
-                  Tu navegador no soporta vídeo HTML5.
-                </video>
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-black aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_ID}&controls=1&rel=0&modestbranding=1`}
+                  title="Simulación 4D - Cárcel Antofagasta"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
 
               <div className="pt-5 px-2">
@@ -143,13 +116,7 @@ export default function Hero() {
                   Visualización 4D realista para comunicar secuencia constructiva,
                   planificación y comprensión espacial del proyecto.
                 </p>
-
-                <a
-                  href={PROJECT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-vs-orange hover:text-vs-orange-light font-semibold transition-colors"
-                >
+                <a href={PROJECT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-vs-orange hover:text-vs-orange-light font-semibold transition-colors">
                   Abrir visualización 3D completa
                   <FiExternalLink size={16} />
                 </a>
@@ -165,10 +132,7 @@ export default function Hero() {
         transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a
-          href="#problema"
-          className="text-gray-400 hover:text-white transition-colors flex flex-col items-center gap-1"
-        >
+        <a href="#problema" className="text-gray-400 hover:text-white transition-colors flex flex-col items-center gap-1">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <FiChevronDown size={20} className="animate-bounce" />
         </a>
