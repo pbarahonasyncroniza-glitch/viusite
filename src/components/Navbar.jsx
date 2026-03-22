@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
-import { WHATSAPP_URL } from '../config/contact';
+// import { WHATSAPP_URL } from '../config/contact';
 
 const LOGO_URL = '/logo-viusite.png';
 
@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex">
+        {/* <div className="hidden md:flex">
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -65,7 +65,7 @@ const Navbar = () => {
             <FaWhatsapp className="text-lg" />
             Solicitar demo
           </a>
-        </div>
+        </div> */}
 
         <button
           type="button"
