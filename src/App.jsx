@@ -9,6 +9,7 @@ import Methodology from './components/Methodology'
 import Differentiators from './components/Differentiators'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <Differentiators />
       <ContactForm />
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }

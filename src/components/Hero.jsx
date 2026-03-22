@@ -64,7 +64,7 @@ export default function Hero() {
                 Solicitar Demo
               </a>
               <a href={PROJECT_URL} target="_blank" rel="noopener noreferrer" className="border border-white/20 hover:border-vs-orange/50 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 hover:bg-white/5 text-lg inline-flex items-center justify-center gap-2">
-                Ver visualización 3D
+                Ver Plataforma 4D
                 <FiExternalLink size={18} />
               </a>
             </motion.div>

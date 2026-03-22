@@ -1,75 +1,111 @@
-import { useState, useEffect } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import React, { useEffect, useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import { WHATSAPP_URL } from '../config/contact';
 
-const LOGO_URL = '/logo-viusite.png'
+const LOGO_URL = '/logo-viusite.png';
 
+const navLinks = [
+  { label: 'Solución', href: '#solucion' },
+  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Metodología', href: '#metodologia' },
+  { label: 'Casos de Uso', href: '#casos-de-uso' },
+  { label: 'Contacto', href: '#contacto' },
+];
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const navLinks = [
-    { label: 'Solución',     href: '#solucion' },
-    { label: 'Proyectos',    href: '#proyectos' },
-    { label: 'Metodología',  href: '#metodologia' },
-    { label: 'Casos de Uso', href: '#casos' },
-    { label: 'Contacto',     href: '#contacto' },
-  ]
+  const closeMobileMenu = () => setMobileOpen(false);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#080d1a]/90 backdrop-blur-md shadow-lg shadow-black/20' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
-          <img src={LOGO_URL} alt="ViuSite Logo" className="h-10 w-auto drop-shadow-lg" />
-          <span className="font-display font-bold text-xl text-white">
-            Viu<span className="text-gradient">Site</span>
-          </span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-slate-950/90 backdrop-blur-md border-b border-white/10 shadow-lg'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#inicio" className="flex items-center gap-3" onClick={closeMobileMenu}>
+          <img
+            src={LOGO_URL}
+            alt="ViuSite Logo"
+            className="h-10 w-auto object-contain md:h-11"
+          />
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map(link => (
-            <a key={link.href} href={link.href}
-              className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-200">
+        <nav className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-white/85 transition hover:text-orange-400"
+            >
               {link.label}
             </a>
           ))}
-          <a href="#contacto"
-            className="bg-vs-orange hover:bg-vs-orange-light text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange-500/25">
-            Solicitar Demo
+        </nav>
+
+        <div className="hidden md:flex">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-green-500/20 transition hover:scale-[1.02] hover:bg-[#1ebe5d]"
+          >
+            <FaWhatsapp className="text-lg" />
+            Solicitar demo
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-white p-2">
-          {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        <button
+          type="button"
+          onClick={() => setMobileOpen((prev) => !prev)}
+          className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2 text-white md:hidden"
+          aria-label="Abrir menú"
+        >
+          {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#080d1a]/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4 border-t border-white/10">
-          {navLinks.map(link => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              className="text-gray-300 hover:text-white py-2 text-sm font-medium">
-              {link.label}
+      {mobileOpen && (
+        <div className="border-t border-white/10 bg-slate-950/95 backdrop-blur-md md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={closeMobileMenu}
+                className="rounded-lg px-3 py-3 text-base text-white/90 transition hover:bg-white/5 hover:text-orange-400"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMobileMenu}
+              className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-green-500/20 transition hover:bg-[#1ebe5d]"
+            >
+              <FaWhatsapp className="text-lg" />
+              Solicitar demo por WhatsApp
             </a>
-          ))}
-          <a href="#contacto" onClick={() => setMenuOpen(false)}
-            className="bg-vs-orange text-white text-sm font-semibold px-5 py-3 rounded-lg text-center">
-            Solicitar Demo
-          </a>
+          </div>
         </div>
       )}
-    </nav>
-  )
-}
+    </header>
+  );
+};
+
+export default Navbar;
