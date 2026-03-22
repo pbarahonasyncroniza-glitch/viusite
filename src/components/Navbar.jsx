@@ -5,6 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const LOGO_URL = '/logo-viusite.png';
 
+
 const navLinks = [
   { label: 'Solución', href: '#solucion' },
   { label: 'Proyectos', href: '#proyectos' },
@@ -40,7 +41,18 @@ const Navbar = () => {
             src={LOGO_URL}
             alt="ViuSite Logo"
             className="h-10 w-auto object-contain md:h-11"
+            
           />
+          <span
+                className="font-display font-bold text-2xl text-white"
+                style={{ WebkitBackgroundClip: undefined }}>
+                Viu<span style={{
+                  background: 'linear-gradient(135deg,#e8621a,#ff7c35)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}>Site</span>
+              </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
