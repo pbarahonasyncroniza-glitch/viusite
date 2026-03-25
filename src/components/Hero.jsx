@@ -88,7 +88,7 @@ export default function Hero() {
           >
             Solicitar Demo
           </a>
-          <a
+          {/* <a
             href={PROJECT_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -97,7 +97,7 @@ export default function Hero() {
           >
             Ingresa a Plataforma 4D
             <FiExternalLink size={16} />
-          </a>
+          </a> */}
         </motion.div>
 
       </div>
