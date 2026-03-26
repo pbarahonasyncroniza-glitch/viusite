@@ -3,8 +3,8 @@ import { useRef } from 'react'
 import { FiExternalLink, FiBox, FiHome } from 'react-icons/fi'
 
 const project = {
-  title: 'Cárcel Antofagasta',
-  company: 'Constructora Ingevec',
+  title: 'Demo',
+  company: 'ViuSite',
   url: 'https://preeminent-ganache-e0c8cc.netlify.app/',
   description:
     'Explora una visualización 3D realista del proyecto. Este apartado permite mostrar una experiencia inmersiva del avance y la espacialidad del proyecto, alineada con la propuesta de valor de ViuSite.',
@@ -92,18 +92,18 @@ export default function Projects() {
                     </div>
                   </div>
                   <div className="space-y-3 text-sm">
-                    <div className="flex items-center justify-between gap-3">
+                    {/* <div className="flex items-center justify-between gap-3">
                       <span className="text-gray-500">Proyecto</span>
                       <span className="text-white font-medium text-right">Cárcel Antofagasta</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
+                    </div> */}
+                    {/* <div className="flex items-center justify-between gap-3">
                       <span className="text-gray-500">Constructora</span>
                       <span className="text-white font-medium text-right">Ingevec</span>
-                    </div>
-                    <div className="flex items-center justify-between gap-3">
+                    </div> */}
+                    {/* <div className="flex items-center justify-between gap-3">
                       <span className="text-gray-500">Tipo</span>
                       <span className="text-white font-medium text-right">Visualización 3D realista</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

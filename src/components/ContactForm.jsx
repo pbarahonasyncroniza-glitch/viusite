@@ -1,6 +1,8 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FiCheck } from 'react-icons/fi'
+import CalendlyButton from './common/CalendlyButton';
+
 
 const LOGO_URL = '/logo-viusite.png'
 
@@ -112,11 +114,10 @@ export default function ContactForm() {
                 className="w-full bg-vs-bg border border-white/10 focus:border-vs-orange text-white placeholder-gray-500 rounded-xl px-4 py-3 outline-none transition-colors text-sm resize-none"
               />
 
-              <button
-                type="submit"
-                className="w-full bg-vs-orange hover:bg-vs-orange-light text-white font-bold text-lg py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/30 glow-orange">
-                Solicitar Demo Gratuita →
-              </button>
+              <CalendlyButton className="w-full justify-center text-base px-8 py-4">
+                Agendar reunión
+              </CalendlyButton>
+
 
               <p className="text-center text-gray-500 text-xs">
                 Sin compromisos. Te contactamos en menos de 24 horas.

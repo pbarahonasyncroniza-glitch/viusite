@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { FiChevronDown, FiPlay, FiExternalLink } from 'react-icons/fi'
+import CalendlyButton from './common/CalendlyButton';
 
-const YOUTUBE_ID = 'cDwVH2caK-w'
+
+const YOUTUBE_ID = 'R7PDBrnZxgQ'
 const PROJECT_URL = 'https://preeminent-ganache-e0c8cc.netlify.app/'
 
 export default function Hero() {
@@ -22,7 +24,9 @@ export default function Hero() {
           <span className="w-2 h-2 rounded-full bg-vs-orange-light animate-pulse" />
           Simulación 4D para Construcción
         </motion.div>
-
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <CalendlyButton>Agendar reunión</CalendlyButton>
+          </div>
         {/* Título */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -59,14 +63,14 @@ export default function Hero() {
                 Simulación 4D destacada
               </div>
               <span className="text-xs text-gray-400 hidden sm:block">
-                Cárcel Antofagasta · Ingevec
+                Demo ViuSite
               </span>
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/10 bg-black aspect-video">
               <iframe
                 className="w-full h-full"
                 src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_ID}&controls=1&rel=0&modestbranding=1`}
-                title="Simulación 4D - Cárcel Antofagasta"
+                title="Simulación 4D"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

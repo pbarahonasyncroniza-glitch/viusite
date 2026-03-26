@@ -3,7 +3,7 @@ const LOGO_URL = '/logo-viusite.png'
 
 const services  = ['Simulación 4D', 'Análisis de Interferencias', 'Planificación Constructiva', 'Presentaciones']
 const company   = ['Metodología', 'Proyectos', 'Casos de Uso', 'Diferenciadores', 'Contacto']
-const contact   = ['info@viusite.com', 'Santiago, Chile']
+const contact   = ['contacto@viusite.com', 'Santiago, Chile']
 
 export default function Footer() {
   return (

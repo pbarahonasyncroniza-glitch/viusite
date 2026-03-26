@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
+
+
 // import { WHATSAPP_URL } from '../config/contact';
 
 const LOGO_URL = '/logo-viusite.png';
@@ -88,6 +90,7 @@ const Navbar = () => {
           {mobileOpen ? <FiX size={22} /> : <FiMenu size={22} />}
         </button>
       </div>
+      
 
       {mobileOpen && (
         <div className="border-t border-white/10 bg-slate-950/95 backdrop-blur-md md:hidden">

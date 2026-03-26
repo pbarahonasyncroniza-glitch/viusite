@@ -14,7 +14,7 @@ export default function UseCases() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="casos" ref={ref} className="py-24 px-6 bg-vs-bg">
+    <section id="casos-de-uso" ref={ref} className="py-24 px-6 bg-vs-bg">
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity:0, y:30 }} animate={inView ? { opacity:1, y:0 } : {}} transition={{ duration:0.6 }}
           className="text-center mb-16">
