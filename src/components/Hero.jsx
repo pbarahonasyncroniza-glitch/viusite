@@ -85,13 +85,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="flex flex-col sm:flex-row justify-center gap-4 w-full px-8 sm:px-20 md:px-32"
         >
-          <a
-            href="#contacto"
-            style={{ backgroundColor: '#e8621a' }}
-            className="text-white font-semibold text-base px-8 py-4 rounded-xl transition-all duration-200 hover:opacity-90 hover:shadow-xl hover:shadow-orange-500/30 text-center flex-1"
-          >
-            Solicitar Demo
-          </a>
+           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <CalendlyButton>Agendar reunión</CalendlyButton>
+          </div>
           {/* <a
             href={PROJECT_URL}
             target="_blank"
